@@ -5,6 +5,10 @@ import (
 )
 
 func InstallRouter(app *fiber.App) {
-	NewHttpRouter().InstallRouter(app)
-	NewApiRouter().InstallRouter(app)
+	setup(app, NewApiRouter(), NewHttpRouter())
+}
+func setup(app *fiber.App, router ...Router) {
+	for _, r := range router {
+		r.InstallRouter(app)
+	}
 }
