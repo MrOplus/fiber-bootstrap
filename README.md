@@ -4,9 +4,12 @@ Fiber bootstrap for rapid development using Go-Fiber / Gorm / Validator.
 # Components
 * Fiber
   * Html Engine Template
+  * Logger
+  * Monitoring
 * Gorm
   * Sqlite Driver
 * Validator  
+* Env File
 
 # Router 
 API Router `/api` with rate limiter middleware  

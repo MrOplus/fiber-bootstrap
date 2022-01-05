@@ -1,13 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/kooroshh/fiber-boostrap/bootstrap"
-	"github.com/kooroshh/fiber-boostrap/router"
+	"github.com/kooroshh/fiber-boostrap/pkg/env"
 	"log"
 )
 
 func main() {
 	app := bootstrap.NewApplication()
-	router.InstallRouter(app)
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(fmt.Sprintf("%s:%s", env.GetEnv("APP_HOST", "localhost"), env.GetEnv("APP_PORT", "4000"))))
 }
