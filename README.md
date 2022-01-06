@@ -7,7 +7,7 @@ Fiber bootstrap for rapid development using Go-Fiber / Gorm / Validator.
   * Logger
   * Monitoring
 * Gorm
-  * Sqlite Driver
+  * PGSQL Driver
 * Validator  
 * Env File
 
