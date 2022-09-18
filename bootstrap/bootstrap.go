@@ -1,6 +1,7 @@
 package bootstrap
 
 import (
+	"encoding/json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
@@ -15,7 +16,7 @@ func NewApplication() *fiber.App {
 	env.SetupEnvFile()
 	database.SetupDatabase()
 	engine := html.New("./views", ".html")
-	app := fiber.New(fiber.Config{Views: engine})
+	app := fiber.New(fiber.Config{Views: engine, JSONDecoder: json.Unmarshal, JSONEncoder: json.Marshal, ServerHeader: "Fiber"})
 	app.Use(recover.New())
 	app.Use(logger.New())
 	app.Get("/dashboard", monitor.New())
